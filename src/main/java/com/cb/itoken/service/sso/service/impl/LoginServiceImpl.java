@@ -35,7 +35,7 @@ public class LoginServiceImpl implements LoginService {
 
             tbSysUser = tbSysUserMapper.selectOneByExample(example);
             String password = DigestUtils.md5DigestAsHex(plantPassword.getBytes());
-            if(password.equals(tbSysUser.getPassword())){
+            if(tbSysUser != null && password.equals(tbSysUser.getPassword())){
                 try {
                     redisService.put(loginCode, MapperUtils.obj2json(tbSysUser), 60 * 60 * 24);
                 } catch (Exception e) {
