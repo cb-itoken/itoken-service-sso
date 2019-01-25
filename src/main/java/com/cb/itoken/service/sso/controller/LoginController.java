@@ -108,15 +108,7 @@ public class LoginController {
             }
         }
 
-        try {
-            // 如果使用return "redirect:login", 就会将common-web里配置的常量拦截器写入地址
-            // 如果使用response.sendRedirect("login"), 则不会出现这种情况
-            response.sendRedirect("login");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return null;
+        return "redirect:login";
     }
 
     /**
