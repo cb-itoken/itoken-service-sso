@@ -3,6 +3,7 @@ package com.cb.itoken.service.sso.controller;
 import com.cb.itoken.common.domain.TbSysUser;
 import com.cb.itoken.common.utils.CookieUtils;
 import com.cb.itoken.common.utils.MapperUtils;
+import com.cb.itoken.common.web.constants.WebConstants;
 import com.cb.itoken.service.sso.service.LoginService;
 import com.cb.itoken.service.sso.service.consumer.RedisService;
 import org.apache.commons.lang3.StringUtils;
@@ -37,7 +38,7 @@ public class LoginController {
     public String login(@RequestParam(required = false) String url,
                         HttpServletRequest request, Model model){
         TbSysUser tbSysUser = null;
-        String token = CookieUtils.getCookieValue(request, "token");
+        String token = CookieUtils.getCookieValue(request, WebConstants.SESSION_TOKEN);
 
         // token 不为空可能已登录
         if(StringUtils.isNotBlank(token)){
@@ -96,7 +97,7 @@ public class LoginController {
 
             // 将 Token 放入 Cookie (放入redis成功且没有被熔断的情况下)
             if(StringUtils.isNotBlank(result) && "ok".equals(result)){
-                CookieUtils.setCookie(request, response, "token", token, 60 * 60 * 24);
+                CookieUtils.setCookie(request, response, WebConstants.SESSION_TOKEN, token, 60 * 60 * 24);
                 if (StringUtils.isNotBlank(url)) {
                     return "redirect:" + url;
                 }
@@ -122,7 +123,7 @@ public class LoginController {
     @RequestMapping(value = "logout", method = RequestMethod.GET)
     public String logout(HttpServletRequest request, HttpServletResponse response,
                          @RequestParam(required = false) String url, Model model){
-        CookieUtils.deleteCookie(request, response, "token");
+        CookieUtils.deleteCookie(request, response, WebConstants.SESSION_TOKEN);
         return login(url, request, model);
     }
 }
