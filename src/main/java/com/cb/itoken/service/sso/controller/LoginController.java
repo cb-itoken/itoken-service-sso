@@ -1,6 +1,5 @@
 package com.cb.itoken.service.sso.controller;
 
-import com.cb.itoken.common.domain.TbSysUser;
 import com.cb.itoken.common.utils.CookieUtils;
 import com.cb.itoken.common.utils.MapperUtils;
 import com.cb.itoken.common.web.constants.WebConstants;
@@ -13,12 +12,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.UUID;
 
 @Controller

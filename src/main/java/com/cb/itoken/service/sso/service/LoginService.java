@@ -1,7 +1,5 @@
 package com.cb.itoken.service.sso.service;
 
-import com.cb.itoken.common.domain.TbSysUser;
-
 /**
  * @Author:congbing
  * @Description 登录业务
