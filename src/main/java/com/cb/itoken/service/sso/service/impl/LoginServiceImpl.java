@@ -1,5 +1,6 @@
 package com.cb.itoken.service.sso.service.impl;
 
+import com.cb.itoken.common.domain.TbSysUser;
 import com.cb.itoken.common.utils.MapperUtils;
 import com.cb.itoken.service.sso.mapper.TbSysUserMapper;
 import com.cb.itoken.service.sso.service.LoginService;

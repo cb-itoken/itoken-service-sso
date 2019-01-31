@@ -1,5 +1,6 @@
 package com.cb.itoken.service.sso.controller;
 
+import com.cb.itoken.common.domain.TbSysUser;
 import com.cb.itoken.common.utils.CookieUtils;
 import com.cb.itoken.common.utils.MapperUtils;
 import com.cb.itoken.common.web.constants.WebConstants;
